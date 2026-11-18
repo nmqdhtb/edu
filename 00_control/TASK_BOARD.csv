@@ -1,2 +1,3 @@
 task_id,title,owner,reviewer,status,input_paths,output_paths,depends_on,acceptance_criteria,blocker
-TASK-001,Hoàn thiện brief,Human,Product Manager,Todo,00_control/PROJECT_BRIEF.md,00_control/PROJECT_BRIEF.md,,Có người dùng vấn đề MVP dữ liệu thời gian ngân sách,Chưa có đề tài
+TASK-001,Hoàn thiện brief,Human,Product Manager,In Progress,00_control/PROJECT_BRIEF.md,00_control/PROJECT_BRIEF.md,,Có người dùng vấn đề MVP dữ liệu thời gian ngân sách,Các mục chờ xác nhận được theo dõi tại 00_control/STATUS.md
+TASK-002,Soạn PRD bản nháp,Product Manager,Product Owner + Product Designer,In Review,00_control/PROJECT_BRIEF.md và 04_business_analysis/,01_product_strategy/PRD.md,,Đủ năm mục theo mẫu; phân biệt yêu cầu và đề xuất; có phép đo và truy vết BA,
