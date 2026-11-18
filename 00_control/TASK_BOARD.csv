@@ -1,0 +1,2 @@
+task_id,title,owner,reviewer,status,input_paths,output_paths,depends_on,acceptance_criteria,blocker
+TASK-001,Hoàn thiện brief,Human,Product Manager,Todo,00_control/PROJECT_BRIEF.md,00_control/PROJECT_BRIEF.md,,Có người dùng vấn đề MVP dữ liệu thời gian ngân sách,Chưa có đề tài
