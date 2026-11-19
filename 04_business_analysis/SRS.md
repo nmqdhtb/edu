@@ -1,10 +1,11 @@
 # Software Requirements Specification (SRS)
 
 **Tên hệ thống:** Kho tri thức hỗ trợ học thuật  
-**Phiên bản:** 0.1 — bản nháp  
+**Phiên bản:** 0.2 — bản nháp
+
 **Trạng thái:** Chờ nhóm xác nhận phạm vi, dữ liệu và tiêu chí  
 **Ngày:** 18/11/2026  
-**Nguồn:** Mô tả đề tài của người dùng; PROJECT_BRIEF.md chưa được điền.
+**Nguồn:** [Brief](../00_control/PROJECT_BRIEF.md), [PRD 0.2](../01_product_strategy/PRD.md) và [sơ đồ ý tưởng được diễn giải ngày 18/11/2026](../05_product_design/solution-concept.md).
 
 ## 1. Giới thiệu
 
@@ -27,7 +28,7 @@ Tài liệu mô tả yêu cầu phần mềm sơ bộ cho nền tảng hỗ tr�
 | RAG | Tìm nội dung liên quan trong kho trước khi mô hình tạo câu trả lời. |
 | Tài liệu nguồn | Giáo trình, slide, đề cương hoặc tài liệu tham khảo được phép sử dụng. |
 | Trích dẫn | Liên kết tới tài liệu/đoạn hỗ trợ cho câu trả lời. |
-| Curator | Người quản lý hoặc duyệt tài liệu trong kho. |
+| Curator | Người quản lý tệp và metadata. Giảng viên phụ trách duyệt nội dung của từng phiên bản. |
 
 ### 1.4 Tài liệu liên quan
 
@@ -43,7 +44,7 @@ Sinh viên tìm/hỏi/học/ôn; giảng viên tìm hoặc cung cấp tài liệ
 
 ### 2.2 Môi trường vận hành
 
-**TBD:** web hay mobile, trình duyệt, hosting, cơ sở dữ liệu/kho vector, mô hình AI/API, xác thực, môi trường demo/production. Không giả định stack cụ thể.
+PRD đề xuất web app cho demo. Cần chốt trình duyệt, hosting, cơ sở dữ liệu/kho vector, mô hình AI/API, xác thực, môi trường demo/production. Không giả định stack cụ thể.
 
 ### 2.3 Ràng buộc và giả định
 
@@ -82,6 +83,16 @@ Danh sách chuẩn nằm trong `requirements.md`:
 5. Nếu đủ, hệ thống tạo câu trả lời kèm trích dẫn; nếu thiếu, nêu rõ giới hạn.
 6. Người dùng mở trích dẫn để đối chiếu.
 
+### 4.2 Duyệt học liệu và hướng dẫn sư phạm
+
+FR-015 tách trạng thái xử lý kỹ thuật khỏi trạng thái giảng viên duyệt từng phiên bản. Cả kho nạp sẵn và kho nạp qua giao diện đều cần kiểm tra hai trạng thái này cùng quyền theo môn trước khi trả kết quả. Áp dụng lại điều kiện khi mở nguồn, đọc cache hoặc mở trích dẫn đã lưu. Với bài tính điểm, FR-016 áp dụng cả trong chat và khi yêu cầu diễn giải lại.
+
+### 4.3 Phương án tương tác đang xem xét
+
+Trong prototype A, người học đổi giữa ba cách giải thích cùng một câu hỏi (FR-017). Trong prototype B, người học chọn thuật ngữ ngay trên trang và hỏi tiếp theo ngữ cảnh (FR-018). Hai luồng gặp nhau tại ghi chú kèm nguồn (FR-019). Dữ liệu chuyển giữa màn hình gồm môn, phiên bản và đoạn nguồn. Phép thử kết thúc khi người học mở lại đoạn đó từ ghi chú.
+
+FR-020 đến FR-029 mô tả các phương án mở rộng cho nhập câu hỏi, lộ trình ôn, tra thuật ngữ, ảnh ghi chú, trình đọc, nhãn AI, động lực học và cá nhân hóa. Hành vi quan sát được và các điểm chờ xác nhận nằm trong [requirements.md](requirements.md).
+
 ## 5. Yêu cầu dữ liệu
 
 ### 5.1 Thực thể dự kiến
@@ -91,6 +102,9 @@ Danh sách chuẩn nằm trong `requirements.md`:
 - **Document:** mã, tiêu đề, loại, môn, nguồn/chủ sở hữu, phiên bản, ngày hiệu lực, quyền, trạng thái xử lý.
 - **Passage:** mã đoạn, tài liệu/phiên bản, nội dung trích xuất, trang/slide nếu xác định được.
 - **Question/Answer:** câu hỏi, câu trả lời, nguồn, thời điểm, trạng thái và phản hồi nếu bật lưu.
+
+- **Phê duyệt học liệu:** gắn trạng thái duyệt, giảng viên và thời điểm với đúng phiên bản.
+- **Ghi chú trong prototype:** chủ sở hữu, lời người học viết và tham chiếu tài liệu/phiên bản/đoạn. Kiểm tra quyền trước khi hiển thị lại nội dung nguồn. Nếu chọn EPUB, cần ánh xạ vị trí đọc về bản gốc.
 
 ### 5.2 Chất lượng và vòng đời
 

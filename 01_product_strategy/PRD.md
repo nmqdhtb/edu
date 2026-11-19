@@ -1,6 +1,6 @@
 # PRD · Kho tri thức hỗ trợ học thuật
 
-**Bản nháp 0.1 · 18/11/2026 · TASK-002**
+**Bản nháp 0.2 · 18/11/2026 · TASK-002**
 
 Chủ trì soạn thảo: Product Manager. Người rà soát đề xuất: Product Owner và Product Designer. Người có thẩm quyền nghiệm thu sản phẩm đang chờ xác nhận.
 
@@ -33,6 +33,8 @@ Chủ trì soạn thảo: Product Manager. Người rà soát đề xuất: Prod
 | Ôn với Learning Assistant | Sinh viên nhận lời giải thích dễ hiểu hoặc gợi ý phần nên đọc tiếp có dẫn nguồn. Với bài tính điểm, trợ lý gợi ý bước tự làm và giữ lại đáp án cuối. | UC-03 · FR-006–007. Cần BA bổ sung tiêu chí cho bài tính điểm. |
 
 Quyền truy cập phải có hiệu lực khi tìm kiếm, sinh câu trả lời, mở trích dẫn và đọc lại nội dung lưu đệm nếu có. Đề xuất hoãn lịch sử hỏi đáp dài hạn, dashboard giảng viên, cá nhân hóa theo năng lực, tích hợp LMS và điều phối đa tác tử. Quy mô một môn và mức chức năng của mỗi mô-đun vẫn là đề xuất.
+
+**Ý tưởng đang xem xét cho lần thử với sinh viên.** Từ sơ đồ của Quân, đề xuất so sánh cách hỏi qua chat (chuyển giữa ba cách giải thích) với cách bôi đen thuật ngữ ngay trong học liệu. Cả hai thử thao tác lưu ghi chú kèm trích dẫn và mở lại đúng đoạn nguồn. Theo dõi tác vụ nào giúp sinh viên tự giải thích đúng và tìm lại căn cứ trước khi chốt tính năng cho MVP. Các phương án về đọc sách, lộ trình ôn, động lực học và cá nhân hóa được mô tả trong [định hướng giải pháp trải nghiệm](../05_product_design/solution-concept.md).
 
 ## Giải pháp và đánh đổi
 

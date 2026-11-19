@@ -3,13 +3,15 @@
 **Dự án:** Kho tri thức hỗ trợ học thuật  
 **Trạng thái:** Bản nháp — cần xác nhận cùng phạm vi MVP  
 **Ngày:** 18/11/2026  
+**Nguồn:** [Brief](../00_control/PROJECT_BRIEF.md), [PRD 0.2](../01_product_strategy/PRD.md) và [sơ đồ ý tưởng được diễn giải ngày 18/11/2026](../05_product_design/solution-concept.md).
+
 **Actor giả định:** Sinh viên, giảng viên, quản trị viên/curator.
 
 ## UC-01 — Hỏi đáp học thuật có trích dẫn
 
 - **Mục tiêu:** Nhận câu trả lời dựa trên tài liệu môn học và tự kiểm tra nguồn.
 - **Actor chính:** Sinh viên hoặc giảng viên.
-- **Tiền điều kiện:** Actor có quyền; có tài liệu đã xử lý trong phạm vi.
+- **Tiền điều kiện:** Actor có quyền; có phiên bản học liệu đã duyệt và xử lý trong phạm vi.
 - **Kích hoạt:** Actor mở Academic Assistant và gửi câu hỏi.
 - **Hậu điều kiện:** Câu trả lời và nguồn hiển thị; liên kết tới tài liệu/phiên bản/đoạn được giữ theo chính sách.
 - **Yêu cầu:** FR-001, FR-003–005, FR-011, FR-014.
@@ -29,7 +31,7 @@
 
 - **Mục tiêu:** Tìm tài liệu theo từ khóa và metadata.
 - **Actor:** Sinh viên hoặc giảng viên.
-- **Tiền điều kiện:** Tài liệu đã lập chỉ mục và actor có quyền xem.
+- **Tiền điều kiện:** Phiên bản đã duyệt, đã lập chỉ mục và actor có quyền xem.
 - **Luồng chính:** nhập từ khóa → chọn bộ lọc tùy chọn → hệ thống tìm trong phạm vi quyền → hiển thị metadata → actor mở tài liệu.
 - **Ngoại lệ:** Không có kết quả thì gợi ý bỏ bộ lọc; tài liệu ngoài quyền bị loại; tài liệu lỗi xử lý không được trình bày là sẵn sàng.
 - **Yêu cầu:** FR-001, FR-002, FR-008, FR-011.
@@ -38,17 +40,17 @@
 
 - **Mục tiêu:** Hiểu khái niệm hoặc tạo câu hỏi ôn dựa trên tài liệu.
 - **Actor:** Sinh viên.
-- **Tiền điều kiện:** Có tài liệu trong phạm vi và quyền truy cập hợp lệ.
+- **Tiền điều kiện:** Có phiên bản đã duyệt trong phạm vi và quyền truy cập hợp lệ.
 - **Luồng chính:** chọn môn/tài liệu → chọn giải thích hoặc ôn tập → nhập chủ đề/mức độ nếu cần → hệ thống truy xuất nguồn → tạo nội dung kèm nguồn → sinh viên xem hoặc yêu cầu làm rõ/tạo lại.
 - **Ngoại lệ:** Chủ đề ngoài tài liệu thì báo giới hạn; yêu cầu mơ hồ thì hỏi làm rõ; ví dụ AI tạo phải phân biệt với nội dung nguồn.
 - **Yêu cầu:** FR-006, FR-007, FR-011, FR-014.
 
-## UC-04 — Nạp tài liệu
+## UC-04 — Nạp và duyệt phiên bản tài liệu
 
 - **Mục tiêu:** Đưa tài liệu được phép vào kho phục vụ tìm kiếm/hỏi đáp.
-- **Actor:** Quản trị viên/curator.
+- **Actor:** Curator nạp tài liệu, giảng viên phụ trách duyệt phiên bản.
 - **Tiền điều kiện:** Actor được cấp quyền; quyền sử dụng và định dạng hợp lệ.
-- **Luồng chính:** chọn tệp → khai báo môn, loại, nguồn, phiên bản, quyền → hệ thống kiểm tra → trích xuất/lập chỉ mục → hiển thị trạng thái → curator duyệt nếu quy trình yêu cầu.
+- **Luồng chính:** chọn tệp → khai báo môn, loại, nguồn, phiên bản, quyền → hệ thống kiểm tra → trích xuất/lập chỉ mục → hiển thị trạng thái → giảng viên kiểm tra và duyệt đúng phiên bản → cho phép dùng trong phạm vi quyền. Bản bị từ chối hoặc chưa duyệt không xuất hiện trong kho sinh viên.
 - **Ngoại lệ:** Định dạng không hỗ trợ, tệp hỏng, thiếu metadata/quyền, trùng phiên bản hoặc trích xuất lỗi → không đánh dấu sẵn sàng; hiển thị nguyên nhân.
 - **Yêu cầu:** FR-009, FR-010, FR-011.
 
@@ -69,6 +71,32 @@
 - **Luồng chính:** đánh giá câu trả lời hoặc mở lịch sử → hệ thống lưu/hiển thị dữ liệu đúng actor.
 - **Ngoại lệ:** Lưu lỗi thì báo và cho thử lại; lịch sử hết hạn/đã xóa thì không khôi phục; chức năng chưa duyệt thì không thu thập dữ liệu.
 - **Yêu cầu:** FR-012, FR-013.
+
+## UC-07 — Từ đoạn đang đọc đến lời giải thích (prototype B)
+
+Sinh viên mở một phiên bản được phép đọc, bôi đen thuật ngữ, xem tooltip rồi chọn mở nguồn, hỏi sâu hoặc quay lại đọc. Khi đóng tooltip, hệ thống giữ vị trí. Nếu đoạn chọn không đủ để xác định nghĩa, yêu cầu chọn thêm ngữ cảnh. Các phương án đọc mở rộng gồm mục lục, EPUB và hai khung đối chiếu. Mỗi khung cần kiểm tra quyền độc lập.
+
+## UC-08 — Lưu và dùng lại ghi chú (chung cho prototype A và B)
+
+Từ câu trả lời hoặc đoạn đang đọc, sinh viên viết nhận xét, lưu cùng trích dẫn rồi mở lại ghi chú để đối chiếu đúng đoạn nguồn. Nếu quyền bị thu hồi, giữ lời người học viết và ẩn phần nội dung nguồn bị hạn chế. Ảnh chụp ghi chú giấy và gợi ý ôn từ AI là hai bước mở rộng. Người học có thể bỏ qua gợi ý.
+
+## UC-09 — Quay lại ôn và cá nhân hóa sổ (ý tưởng)
+
+Sinh viên mở sổ cá nhân, chọn một ghi chú ngẫu nhiên để ôn và có thể bật Pomodoro. Khi hết phiên học, đồng hồ báo nghỉ. Nếu người học gửi câu hỏi hoặc tạo ghi chú, hệ thống cập nhật chuỗi ngày học một lần cho ngày đó. Người học cũng có thể đổi bìa và trang trí sổ. Khi chưa có ghi chú, đề nghị tạo ghi chú đầu tiên.
+
+## Biến thể và phép thử bổ sung
+
+Các dòng dưới đây là kịch bản dự kiến. Cột tiêu chí trong [yêu cầu chức năng](requirements.md) nêu kết quả cần quan sát cho từng mã.
+
+| Luồng | Yêu cầu bổ sung | Kịch bản kiểm tra |
+|---|---|---|
+| UC-01 | FR-017, FR-020, FR-021 | Thử A với cùng câu hỏi qua ba cách giải thích. Thử câu gợi ý, chat theo bước và sửa câu bị nhận dạng sai khi nhập giọng nói. |
+| UC-02 | FR-023 | Kết hợp các bộ lọc, tra thuật ngữ và kiểm tra trường hợp không có định nghĩa trong phạm vi. |
+| UC-03 | FR-016, FR-022 | Xin đáp án bài tính điểm. Tạo lộ trình từ kiến thức nền và từ mục tiêu với một bước thiếu học liệu. |
+| UC-04 | FR-015, FR-027 | Nạp bản mới, sửa nhãn AI và tìm thử trước và sau khi giảng viên duyệt. |
+| UC-07 | FR-018, FR-025, FR-026 | Đóng tooltip, hỏi sâu theo đoạn, thử hai phiên bản song song và mở bản gốc khi EPUB thiếu ánh xạ. |
+| UC-08 | FR-019, FR-024 | Lưu từ cả hai điểm vào, mở lại sau khi đổi phiên bản hoặc thu hồi quyền, thêm ảnh và bỏ qua gợi ý ôn. |
+| UC-09 | FR-028, FR-029 | Tạo hai ghi chú cùng ngày, thử ôn khi sổ trống, kết thúc phiên Pomodoro và mở lại sổ đã đổi bìa. |
 
 ## Traceability và test dự kiến
 

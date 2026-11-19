@@ -1,6 +1,6 @@
 # Trạng thái hiện tại
 
-Đã có bản nháp brief và tài liệu phân tích nghiệp vụ. TASK-002 đã có [PRD bản nháp 0.1](../01_product_strategy/PRD.md), chờ Product Owner và Product Designer rà soát. Phạm vi MVP một môn đang chờ xác nhận.
+Đã có bản nháp brief và tài liệu phân tích nghiệp vụ. TASK-002 đã có [PRD bản nháp 0.2](../01_product_strategy/PRD.md), chờ Product Owner và Product Designer rà soát. Phạm vi MVP một môn đang chờ xác nhận.
 
 ## TASK-001 · Các mục còn mở của brief
 
@@ -17,3 +17,7 @@
 | [ ] | Ai xác nhận đáp án chuẩn? Dùng bao nhiêu câu và chấm câu trả lời cùng trích dẫn thế nào để đánh giá mục tiêu ≥80%? | |
 | [ ] | Khi quan sát thực tế, sinh viên tra cứu qua những bước nào và mất thời gian ở đâu? | |
 | [ ] | Thời gian tìm đúng nguồn và tỷ lệ tự hoàn thành hiện tại là bao nhiêu? Mức cải thiện mong muốn là bao nhiêu? | |
+
+## Ý tưởng sản phẩm đang rà soát
+
+Sơ đồ ngày 18/11 đã được ghi vào [định hướng giải pháp trải nghiệm](../05_product_design/solution-concept.md). Điểm cần chọn sau khi thử là nên bắt đầu từ câu hỏi hay từ đoạn đang đọc, và việc lưu ghi chú kèm nguồn có cần xuất hiện trong demo đầu hay không.
